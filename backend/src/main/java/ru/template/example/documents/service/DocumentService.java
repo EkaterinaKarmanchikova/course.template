@@ -1,6 +1,7 @@
 package ru.template.example.documents.service;
 
 import ru.template.example.documents.controller.dto.DocumentDto;
+import ru.template.example.documents.controller.dto.AnswerDto;
 
 import java.util.List;
 import java.util.Set;
@@ -10,41 +11,50 @@ import java.util.Set;
  */
 public interface DocumentService {
     /**
-     * Сохранить документ
+     * Сохранение документа
      * @param documentDto документ
      * @return сохраненный документ
      */
     DocumentDto save(DocumentDto documentDto);
 
     /**
-     * Удалить документ
-     * @param ids идентификаторы документов
+     * Удаление документов
+     * @param ids номер документов
      */
     void deleteAll(Set<Long> ids);
 
     /**
-     * Удалить документ по ид
-     * @param id идентификатор документа
+     * Удалиние документа по номеру
+     * @param id номер документа
      */
     void delete(Long id);
 
     /**
-     * Обновить документ
+     * Обновление документа
      * @param documentDto документ
      * @return обновленный документ
      */
     DocumentDto update(DocumentDto documentDto);
 
     /**
-     * Получить все документы
+     * Получение всех документов
      * @return список документов
      */
     List<DocumentDto> findAll();
 
     /**
-     * Получить документ по номеру
-     * @param id идентификатор
+     * Получение документа по номеру
+     * @param id номер
      * @return документ
      */
     DocumentDto get(Long id);
+    /**
+     * Отправка документ на подтверждение
+     *
+     * @param id номер документа
+     * @return документ
+     */
+    DocumentDto sendOnApprove(Long id);
+
+    void updateFromKafkaMessage(AnswerDto answerDto);
 }

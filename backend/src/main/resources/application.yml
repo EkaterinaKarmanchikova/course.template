@@ -6,3 +6,23 @@ logging:
 
 cors:
   allow: true
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5431/sber
+    username: sber
+    password: passWORD
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        use_sql_comments: true
+  liquibase:
+    change-log: classpath:liquibase/db.changelog-master.xml
+  kafka:
+    bootstrap-servers: localhost:29092

@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 @Data
@@ -19,10 +20,12 @@ public class DocumentDto {
     /**
      * Вид документа
      */
+    @NotBlank
     private String type;
     /**
      * Организация
      */
+    @NotBlank
     private String organization;
     /**
      * Описание
@@ -31,6 +34,7 @@ public class DocumentDto {
     /**
      * Пациент
      */
+    @NotBlank
     private String patient;
     /**
      * Дата документа
@@ -40,5 +44,4 @@ public class DocumentDto {
      * Статус
      */
     private Status status;
-
 }
