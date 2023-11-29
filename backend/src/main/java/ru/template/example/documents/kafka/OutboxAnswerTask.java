@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import ru.template.example.documents.entity.OutboxMessageEntity;
-import ru.template.example.documents.kafka.KafkaSender;
 import ru.template.example.documents.repository.OutboxMessageRepository;
 
 

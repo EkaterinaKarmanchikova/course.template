@@ -16,8 +16,6 @@ import ru.template.example.documents.entity.OutboxMessageEntity;
 import ru.template.example.documents.repository.OutboxMessageRepository;
 
 
-import java.util.UUID;
-
 /**
  * Компонент для приёма сообщений
  */

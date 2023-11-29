@@ -8,7 +8,6 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.Instant;
-import java.util.UUID;
 
 /**
  * Объект для отправки ответов на сообщения
