@@ -39,7 +39,7 @@ public class KafkaAnswerConsumer {
     ) throws JsonProcessingException {
         AnswerDto answerDto = objectMapper.readValue(message, AnswerDto.class);
         Optional<OutboxDocumentEntity> messageForKafka
-                = outboxDocumentRepository.findById(Long.getLong(key));
+                = outboxDocumentRepository.findById(Long.decode(key));
         if (messageForKafka.isEmpty() || messageForKafka.get().getAccepted()) {
             throw new KafkaException("Problem with message");
         }

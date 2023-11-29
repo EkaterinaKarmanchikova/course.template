@@ -39,10 +39,10 @@ public class KafkaDocumentConsumer {
                          @Header(KafkaHeaders.RECEIVED_KEY) String key
     ) throws JsonProcessingException {
         DocumentDto documentDto = objectMapper.readValue(message, DocumentDto.class);
-        checkMessageFromKafkaAnswer(Long.getLong(key));
+        checkMessageFromKafkaAnswer(Long.decode(key));
         AnswerDto answerDto = new AnswerDto(documentDto.getId(), "ACCEPTED");
         OutboxMessageEntity messageForKafkaAnswer
-                = prepareMessageEntity(Long.getLong(key), answerDto);
+                = prepareMessageEntity(Long.decode(key), answerDto);
         outboxMessageRepository.save(messageForKafkaAnswer);
     }
 
